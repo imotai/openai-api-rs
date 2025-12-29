@@ -181,7 +181,7 @@ pub struct ChatCompletionMessageForResponse {
     pub tool_calls: Option<Vec<ToolCall>>,
 }
 
-#[derive(Debug, Deserialize, Serialize)]
+#[derive(Debug, Clone, Deserialize, Serialize)]
 pub struct ChatCompletionChoice {
     pub index: i64,
     pub message: ChatCompletionMessageForResponse,
@@ -189,7 +189,7 @@ pub struct ChatCompletionChoice {
     pub finish_details: Option<FinishDetails>,
 }
 
-#[derive(Debug, Deserialize, Serialize, PartialEq, Eq)]
+#[derive(Debug, Clone, Deserialize, Serialize, PartialEq, Eq)]
 #[allow(non_camel_case_types)]
 pub enum FinishReason {
     stop,
@@ -199,7 +199,7 @@ pub enum FinishReason {
     null,
 }
 
-#[derive(Debug, Deserialize, Serialize)]
+#[derive(Debug, Deserialize, Serialize, Clone)]
 #[allow(non_camel_case_types)]
 pub struct FinishDetails {
     pub r#type: FinishReason,
